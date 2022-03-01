@@ -188,3 +188,12 @@ Processing by Api::V1::ArticlesController#index as */*
 Completed 200 OK in 365ms (Views: 104.8ms | ActiveRecord: 72.6ms | Allocations: 18086)
 
 
+Started GET "/api/v1/articles/8" for ::1 at 2022-03-01 18:14:18 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (19.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"name"=>"othmane", "email"=>"othmane@uit.ac.ma", "jobTitle"=>"QA Enginer", "phone"=>"0651959476", "imgUrl"=>"OthmaneOnes", "id"=>"8", "article"=>{}}
+  [1m[36mArticle Load (116.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles` WHERE `articles`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `show'
+Completed 200 OK in 255ms (Views: 0.6ms | ActiveRecord: 120.9ms | Allocations: 17845)
+
+
