@@ -197,3 +197,24 @@ Processing by Api::V1::ArticlesController#show as */*
 Completed 200 OK in 255ms (Views: 0.6ms | ActiveRecord: 120.9ms | Allocations: 17845)
 
 
+Started POST "/api/v1/articles" for ::1 at 2022-03-01 18:19:40 +0100
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"testAPI", "body"=>"This is Test API Body", "article"=>{"title"=>"testAPI", "body"=>"This is Test API Body"}}
+[31mUnpermitted parameter: :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x00007f69680f2ea8>, params: {"title"=>"testAPI", "body"=>"This is Test API Body", "controller"=>"api/v1/articles", "action"=>"create", "article"=>{"title"=>"testAPI", "body"=>"This is Test API Body"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:17:in `create'
+  [1m[36mArticle Create (258.7ms)[0m  [1m[32mINSERT INTO `articles` (`title`, `body`, `created_at`, `updated_at`) VALUES ('testAPI', 'This is Test API Body', '2022-03-01 17:19:40.361133', '2022-03-01 17:19:40.361133')[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (155.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:17:in `create'
+Completed 200 OK in 421ms (Views: 0.4ms | ActiveRecord: 417.4ms | Allocations: 2922)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-03-01 18:19:47 +0100
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"testAPI", "body"=>"This is Test API Body", "article"=>{"title"=>"testAPI", "body"=>"This is Test API Body"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT `articles`.* FROM `articles` ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms | Allocations: 1632)
+
+
